@@ -70,7 +70,7 @@ function Footer() {
         {/* follow us */}
         <div className="small_screen">
           <h2 className="text-2xl font-semi-bold">Follow Us</h2>
-          <div className=" flex small_screen">
+          <div className="flex   footer_social_media">
             <CiFacebook
               size={30}
               className="mr-2 cursor-pointer hover:text-green-400"

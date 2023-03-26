@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.make_them_center {
+  width: 20%;
+  margin: auto;
+}
+
 @media screen and (max-width: 500px) {
   .small_screen {
     text-align: center;
+    margin: auto;
+    align-items: center;
+  }
+  .footer_social_media {
+    width: 70%;
     margin: auto;
   }
 }
