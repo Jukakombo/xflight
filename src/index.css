@@ -6,7 +6,19 @@
   width: 20%;
   margin: auto;
 }
-
+.hotel {
+  background-image: url("./assets/colonial-style-house-night-scene.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(42, 48, 41, 0.867);
+}
+.centralize_it {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 @media screen and (max-width: 500px) {
   .small_screen {
     text-align: center;

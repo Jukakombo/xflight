@@ -113,7 +113,7 @@ function Footer() {
               placeholder="Enter your email..."
               className="p-2 rounded-[25px] mr-2 outline-0 text-gray-500"
             />
-            <button className="bg-green-300 py-2 px-3.5 rounded-[25px] text-xl font-semi-bold text-[#FFF]">
+            <button className="bg-green-300 py-2 px-2.5 rounded-[25px] text-xl font-semi-bold text-[#FFF]">
               Send
             </button>
           </div>
