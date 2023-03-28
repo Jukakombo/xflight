@@ -5,12 +5,9 @@ import cairo from "../assets/viewpoint-alabaster-mosque-blue-sky-cairo-egypt.jpg
 import canada from "../assets/toronto-skyline-from-park.jpg";
 import pretoria from "../assets/boston-city-aerial-view-with-urban-buildings-highway.jpg";
 
-import { AiFillCar } from "react-icons/ai";
-import { FaHotel, FaShopify } from "react-icons/fa";
-import { TbBus } from "react-icons/tb";
-import { BiDrink } from "react-icons/bi";
-import { HiUserGroup } from "react-icons/hi";
-
+import x1 from "../assets/x (1).jpg";
+import x2 from "../assets/x (2).jpg";
+import x3 from "../assets/x (3).jpg";
 export const city_destination = [
   {
     city: "Casablanca",
@@ -62,11 +59,20 @@ export const city_destination = [
   },
 ];
 
-export const Icons = [
-  { name: "Car Rentals", icon: AiFillCar, id: "cdkd122" },
-  { name: "Hotels", icon: FaHotel, id: "cdkd123" },
-  { name: "Airport Trans", icon: TbBus, id: "cdkd124" },
-  { name: "Tour & Acitvitis", icon: BiDrink, id: "cdkd125" },
-  { name: "Meet & Greet", icon: HiUserGroup, id: "cdkd128" },
-  { name: "Duty-Free Shopping", icon: FaShopify, id: "cdkd127" },
+export const sliders = [
+  {
+    id: "uiojdvc344",
+    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa earum deleniti dicta cum sed explicabo delectus nam sequi recusandae similique",
+    image: x1,
+  },
+  {
+    id: "uiojdvc344",
+    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa earum deleniti dicta cum sed explicabo delectus nam sequi recusandae similique",
+    image: x2,
+  },
+  {
+    id: "uiojdvc344",
+    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa earum deleniti dicta cum sed explicabo delectus nam sequi recusandae similique",
+    image: x3,
+  },
 ];

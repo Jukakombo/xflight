@@ -1,5 +1,5 @@
 import React from "react";
-import { Icons } from "./data";
+
 import { AiFillCar } from "react-icons/ai";
 import { FaHotel, FaShopify } from "react-icons/fa";
 import { TbBus } from "react-icons/tb";
@@ -7,8 +7,8 @@ import { BiDrink } from "react-icons/bi";
 import { HiUserGroup } from "react-icons/hi";
 function PlanTrip() {
   return (
-    <div className="w-11/12 m-auto">
-      <h1 className="centralize_it font-bold text-2xl text-gray-600 ">
+    <div className="w-11/12 m-auto" id="Trip">
+      <h1 className="centralize_it font-bold text-2xl text-gray-600 py-8">
         Plan your trip with us
       </h1>
 

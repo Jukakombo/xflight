@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 function Hotel() {
   return (
-    <div className="hotel flex  justify-center items-center">
+    <div className="hotel flex  justify-center items-center" id="Hotel">
       <div className="text-center py-8 text-white">
         <h3 className="text-xl">Week in Juba</h3>
         <h1 className="text-2xl font-bold py-4">The Continental Pyrid Hotel</h1>
