@@ -101,7 +101,7 @@ function Homepage() {
                 </div>
               </div>
               {/* second input */}
-              <div className="grid sm:grid-cols-1 md:grid-cols-3 my-4">
+              <div className="grid sm:grid-cols-1 md:grid-cols-3 my-4 items-center">
                 <div className="flex items-center py-4">
                   <label htmlFor="class " className="p-2">
                     Class
@@ -146,9 +146,11 @@ function Homepage() {
                     <option value="10">10</option>
                   </select>
                 </div>
-                <button className="bg-green-400 cursor-pointer border-none rounded-[20px] p-2 text-xl font-bold text-white">
-                  Search Flight
-                </button>
+                <div className="w-full p-4">
+                  <button className="bg-green-400 cursor-pointer border-none rounded-[20px] p-2   text-xl font-bold text-white w-full">
+                    Search Flight
+                  </button>
+                </div>
               </div>
             </form>
           </div>
