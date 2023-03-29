@@ -38,10 +38,22 @@
   position: absolute;
   top: 100px;
 }
+
+/* .search_plane {
+  position: absolute;
+  top: 750px;
+  left: 115px;
+} */
+
 @media screen and (max-width: 600px) {
   .mobile_visiblity {
     /*  */
   }
+  /* .search_plane {
+    position: relative;
+    top: 0px;
+    left: 0px;
+  } */
   .slider {
     width: 100%;
     margin: auto;
