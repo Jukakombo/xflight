@@ -1,24 +1,18 @@
-import { useState } from "react";
-import Footer from "./components/Footer";
-import NeedHelp from "./components/NeedHelp";
-import Hotel from "./components/Hotel";
-import FeatureDestination from "./components/FeatureDestination";
-import PlanTrip from "./components/PlanTrip";
-import Homepage from "./components/Homepage";
-import { Routes, Route } from "react-router-dom";
-import WhyChoosingUs from "./components/WhyChoosingUs";
+import { Route, Routes } from "react-router-dom";
+import BookingDetail from "./components/BookingDetail";
+import SearchAirline from "./components/SearchAirline";
+
+import Home from "./Home";
 
 function App() {
   return (
     <div className="main">
-      <Homepage />
-      <WhyChoosingUs />
-      <PlanTrip />
-      <FeatureDestination />
-      <Hotel />
-      <NeedHelp />
+      <Routes>
+        <Route path="/" exact element={<Home />} />
 
-      <Footer />
+        <Route path="/xflight" exact element={<SearchAirline />} />
+        <Route path="/booking-detail/:id" exact element={<BookingDetail />} />
+      </Routes>
     </div>
   );
 }
