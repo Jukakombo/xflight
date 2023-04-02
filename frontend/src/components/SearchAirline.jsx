@@ -89,7 +89,7 @@ function SearchAirline() {
                       <h1>Amount </h1>${x.price}
                     </div>
                     <div className="">
-                      <Link to={`/booking-detail/${x.id}`}>
+                      <Link to={`/reservation/${x.id}`}>
                         <button className="bg-green-400 rounded-[20px] p-2 font-bold text-white">
                           Book Now
                         </button>
