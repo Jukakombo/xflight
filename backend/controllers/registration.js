@@ -13,9 +13,9 @@ export const fetchRegistrations = async (req, res) => {
 
 // function create Registrations
 export const createRegistration = async (req, res) => {
-  const { passengerData, paymentResult } = req.body;
+  const { registration } = req.body;
 
-  const newRegistration = new Registrations(passengerData);
+  const newRegistration = new Registrations(registration);
   try {
     await newRegistration.save();
 

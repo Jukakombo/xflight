@@ -14,8 +14,9 @@ import ngoRouter from "./routes/ngodata.js";
 
 const app = express();
 dotenv.config();
-mongoose.set("strictQuery", true);
 app.use(cors());
+mongoose.set("strictQuery", true);
+app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use("/users", userRouter);

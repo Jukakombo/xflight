@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
 const registrationSchema = mongoose.Schema(
   {
-    // user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     firstName: String,
     lastName: String,
     email: String,
-    amount: Number,
+    amount: String,
     paymentMethode: String,
     phone: String,
     vclass: String,
