@@ -14,7 +14,7 @@ const registration = (registration = [], action) => {
         "registration",
         JSON.stringify({ ...action?.payload })
       );
-      
+
       return [...registration, action.payload];
 
     case UPDATE_REGISTRATION:

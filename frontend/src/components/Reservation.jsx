@@ -5,22 +5,13 @@ import flightDetail from "../data.json";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { createRegistration } from "../actions/registration";
+import { sanityClient } from "./sanityClient";
+import { useEffect } from "react";
 
 function Reservation() {
   const { id } = useParams();
   const reservationDetail = flightDetail.find((x) => x.id === id);
-  // const {
-  //   price,
-  //   destination,
-  //   departureTime,
-  //   origin,
-  //   arrivalTime,
-  //   date,
-  //   name,
-  //   flightNo,
-  // } = reservationDetail;
-
-  const passengerDetail = {
+  const initialState = {
     firstName: "",
     lastName: "",
     email: "",
@@ -38,7 +29,7 @@ function Reservation() {
     to: reservationDetail.destination,
     departureTime: reservationDetail.departureTime,
   };
-  const [passengerData, setPassengerData] = useState(passengerDetail);
+  const [registration, setRegistration] = useState(initialState);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -58,19 +49,62 @@ function Reservation() {
     from,
     to,
     departureTime,
-  } = passengerData;
+  } = registration;
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createRegistration(passengerData));
+    dispatch(createRegistration(registration));
+    const passenger = {
+      _type: "vflight",
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      amount: amount,
+      paymentMethode: paymentMethode,
+      phone: phone,
+      vclass: vclass,
+      adult: adult,
+      children: children,
+      date: date,
+      flightNo: flightNo,
+      company: company,
+      arrivalTime: arrivalTime,
+      from: from,
+      to: to,
+      departureTime: departureTime,
+    };
+    sanityClient.create(passenger);
+    localStorage.setItem("passenger", JSON.stringify(passenger));
+
     setTimeout(() => {
       navigate("/payment");
-    }, 5000);
-    // console.log(passengerData);
+    }, 7000);
+
+    clearField();
   };
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
-    setPassengerData({ ...passengerData, [name]: value });
+    setRegistration({ ...registration, [name]: value });
+  };
+  const clearField = () => {
+    setRegistration({
+      firstName: "",
+      lastName: "",
+      email: "",
+      amount: "",
+      paymentMethode: "",
+      phone: "",
+      vclass: "",
+      adult: "",
+      children: "",
+      date: "",
+      flightNo: "",
+      company: "",
+      arrivalTime: "",
+      from: "",
+      to: "",
+      departureTime: "",
+    });
   };
   return (
     <>
@@ -127,8 +161,8 @@ function Reservation() {
               <input
                 type="text"
                 name="firstName"
-                required
                 value={firstName}
+                required
                 onChange={onChangeHandler}
                 id="firstName"
                 placeholder="Enter your first name!"
@@ -151,8 +185,8 @@ function Reservation() {
               <label htmlFor="email">Email Address</label>
               <input
                 value={email}
-                onChange={onChangeHandler}
                 name="email"
+                onChange={onChangeHandler}
                 required
                 type="email"
                 id="email"
@@ -166,6 +200,7 @@ function Reservation() {
                 value={from}
                 name="from"
                 type="from"
+                required
                 id="from"
                 placeholder="Enter your from!"
               />
@@ -174,6 +209,7 @@ function Reservation() {
               <label htmlFor="to">To</label>
               <input
                 value={to}
+                required
                 name="to"
                 type="to"
                 id="to"
@@ -184,6 +220,7 @@ function Reservation() {
               <label htmlFor="departureTime">Departure Time</label>
               <input
                 value={departureTime}
+                required
                 name="departureTime"
                 type="departureTime"
                 id="departureTime"
@@ -194,6 +231,7 @@ function Reservation() {
               <label htmlFor="arrivalTime">Arrival Time</label>
               <input
                 value={arrivalTime}
+                required
                 name="arrivalTime"
                 type="arrivalTime"
                 id="arrivalTime"
@@ -206,6 +244,7 @@ function Reservation() {
                 value={date}
                 name="date"
                 type="text"
+                required
                 id="date"
                 placeholder="Enter your date!"
               />
@@ -214,6 +253,7 @@ function Reservation() {
               <label htmlFor="flightNo">Flight No.</label>
               <input
                 value={flightNo}
+                required
                 name="flightNo"
                 type="flightNo"
                 id="flightNo"
@@ -223,6 +263,7 @@ function Reservation() {
             <div className="input_data">
               <label htmlFor="company">company</label>
               <input
+                required
                 value={company}
                 name="company"
                 type="company"
@@ -232,23 +273,11 @@ function Reservation() {
             </div>
 
             <div className="input_data">
-              <label htmlFor="email">Email Address</label>
-              <input
-                value={email}
-                onChange={onChangeHandler}
-                name="email"
-                type="email"
-                required
-                id="email"
-                placeholder="Enter your email!"
-              />
-            </div>
-            <div className="input_data">
               <label htmlFor="amount">Amount $</label>
               <input
                 value={amount}
                 name="amount"
-                type="number"
+                type="text"
                 id="amount"
                 placeholder="Amount"
               />
@@ -264,12 +293,12 @@ function Reservation() {
                 required
                 placeholder="paymentMethode"
               >
-                <option value="">...Select </option>
+                <option>...Select </option>
                 <option value="paypal">Paypal</option>
               </select>
             </div>
             <div className="input_data">
-              <label htmlFor="phone">Phone Number $</label>
+              <label htmlFor="phone">Phone Number </label>
               <input
                 value={phone}
                 onChange={onChangeHandler}

@@ -13,22 +13,24 @@ function OrderSummary() {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("profile"));
-  const payment = JSON.parse(localStorage.getItem("cartItems"));
-  const userInfos = JSON.parse(localStorage.getItem("registration"));
-  console.log(payment);
-
+  const passenger = localStorage.getItem("passenger");
+  const passengerStorage = JSON.parse(passenger);
   const {
     firstName,
     lastName,
-    _id,
     amount,
-    delegate,
-    city,
-    country,
-    correctEmail,
-    whatsApp,
-    paymentMethode,
-  } = userInfos;
+    phone,
+    email,
+    departureTime,
+    from,
+    to,
+    arrivalTime,
+    company,
+  } = passengerStorage;
+
+  const payment = JSON.parse(localStorage.getItem("cartItems"));
+  const userInfos = JSON.parse(localStorage.getItem("registration"));
+  console.log(userInfos);
 
   useEffect(() => {
     if (!user || !userInfos) {
@@ -44,7 +46,7 @@ function OrderSummary() {
         <Paper>
           <Grid container>
             <Grid
-              key={_id}
+              // key={_id}
               item
               lg={8}
               md={4}
@@ -58,18 +60,32 @@ function OrderSummary() {
                   Passenger Details and payment
                 </Typography>
               </ListItem>
-              <ListItem>
-                Full Name: {firstName} {lastName}
-              </ListItem>
-              <ListItem>Country: {country}</ListItem>
-              <ListItem>City : {city}</ListItem>
-              <ListItem>Email: {correctEmail}</ListItem>
-              <ListItem>WhatsApp/Phone: {whatsApp}</ListItem>
-              <ListItem>Delegate: {delegate}</ListItem>
-              <ListItem>AMount $: {amount}</ListItem>
-              <ListItem>
-                <strong>Payment Methode:</strong> {paymentMethode}
-              </ListItem>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Full Name: {firstName} {lastName}
+                </ListItem>
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Email Address: {email}
+                </ListItem>
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Phone Number:{phone}
+                </ListItem>
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Air Line: {company}
+                </ListItem>
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Travelling from : {from}
+                </ListItem>{" "}
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Destination zone: {to}
+                </ListItem>
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Departure Time: {departureTime}hr
+                </ListItem>{" "}
+                <ListItem className=" bg-gray-200 font-bold my-2">
+                  Arrival Time: {arrivalTime}hr
+                </ListItem>
+              </div>
             </Grid>
 
             <Grid
@@ -78,20 +94,24 @@ function OrderSummary() {
               md={4}
               xs={12}
               component="div"
-              style={{ border: "1px solid whiteSmoke" }}
+              style={{
+                border: "1px solid whiteSmoke",
+                width: "100%",
+                margin: "auto",
+              }}
             >
               <ListItem>
                 <Typography variant="h5">Sammary Info</Typography>
               </ListItem>
               <ListItem>Tax : 0$</ListItem>
-              <ListItem> Amount : 5$</ListItem>
+              <ListItem> Amount : {amount}$</ListItem>
               <ListItem>
                 <p>
-                  <strong>Total Amount:</strong> ${amount}
+                  <strong>Total Amount:</strong>${amount}
                 </p>
               </ListItem>
               <ListItem>
-                <AddPaypalButton1 />
+                <AddPaypalButton1 amount={amount} />
               </ListItem>
             </Grid>
           </Grid>

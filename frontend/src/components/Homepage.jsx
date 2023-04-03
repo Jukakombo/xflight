@@ -4,6 +4,7 @@ import { sliders } from "./data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 function Homepage() {
   var settings = {
     dots: false,
@@ -147,9 +148,11 @@ function Homepage() {
                   </select>
                 </div>
                 <div className="w-full p-4">
-                  <button className="bg-green-400 cursor-pointer border-none rounded-[20px] p-2   text-xl font-bold text-white w-full">
-                    Search Flight
-                  </button>
+                  <Link to="/vflight">
+                    <button className="bg-green-400 cursor-pointer border-none rounded-[20px] p-2   text-xl font-bold text-white w-full">
+                      Search Flight
+                    </button>
+                  </Link>
                 </div>
               </div>
             </form>

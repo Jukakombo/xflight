@@ -70,6 +70,11 @@
   border-radius: 20px;
   margin-left: 10px;
 }
+.loaderx {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(241, 242, 243);
+}
 @media screen and (max-width: 600px) {
   .mobile_visiblity {
     /*  */

@@ -17,12 +17,12 @@ export const getRegistrations = () => async (dispatch) => {
   }
 };
 //   create CONTACTion function
-export const createRegistration = (registrationData) => async (dispatch) => {
-  const { navigate } = registrationData;
+export const createRegistration = (registration) => async (dispatch) => {
+  const { navigate } = registration;
   try {
-    const { data } = await axios.creatRregistration(registrationData);
+    const { data } = await axios.creatRregistration(registration);
     dispatch({ type: CREATE_REGISTRATION, payload: data });
-    navigate("/payment");
+    navigate("/");
   } catch (error) {
     console.log(error);
   }
